@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "48c2bbc5-80cd-496e-9279-b609129c7a20",
+		"name": "Latihan_API_Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22368903",
+		"_collection_link": "https://www.postman.com/cryosat-physicist-82013446/workspace/binaraqe-titania/collection/22368903-48c2bbc5-80cd-496e-9279-b609129c7a20?action=share&source=collection_link&creator=22368903"
+	},
+	"item": [
+		{
+			"name": "Fetches a resource test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/{resource}?page=1&per_page=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"{resource}"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "per_page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a session",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"jungkook\",\n  \"email\": \"jungkook@binar.com\",\n  \"password\": \"string\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://secondhand.binaracademy.org/categories/1.json",
+					"protocol": "https",
+					"host": [
+						"secondhand",
+						"binaracademy",
+						"org"
+					],
+					"path": [
+						"categories",
+						"1.json"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
